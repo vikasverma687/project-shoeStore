@@ -1,0 +1,153 @@
+/* ==========================================================================
+   PREMIUM NAVBAR STYLESHEET - SNEAKERSTORE INTEGRATED UI
+   ========================================================================== */
+
+/* --- UI Variables & Color Tokens (Synced with Homepage) --- */
+:root {
+  --primary-color: #0f172a;      /* Deep Slate */
+  --accent-color: #ff3300;       /* High-energy Orange/Red */
+  --bg-fallback: #f8fafc;        /* Soft Cool Grey */
+  --card-bg: #ffffff;            /* Solid White */
+  --text-dark: #1e293b;          /* Charcoal Slate */
+  --text-muted: #64748b;         /* Neutral Gray */
+  --green-emerald: #10b981;      /* Crisp Pricing Accent */
+  --card-border: rgba(226, 232, 240, 0.8);
+  --shadow-light: 0 4px 15px rgba(15, 23, 42, 0.05);
+  --shadow-hover: 0 12px 30px rgba(15, 23, 42, 0.12);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* --- 1. Navbar Base: Sticky Positioning & Floating Elevations --- */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95); /* Ultra-clean frosted backing */
+  backdrop-filter: blur(8px);                  /* Smooth native glass blur */
+  border-bottom: 1px solid var(--card-border);
+  padding: 0.27rem 0;
+  width: 100%;
+  position: fixed;                             /* Lock navbar smoothly to top */
+  top: 0;
+  left: 0;
+  z-index: 1000;                               /* Ensure visibility above heroes */
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+  font-family: var(--font-sans);
+  box-sizing: border-box;
+}
+
+/* --- 2. Main Container: Constrained Width Bounds --- */
+.nav-container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* --- 3. Premium Architectural Brand Logo --- */
+.nav-logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  position: relative;
+}
+
+/* Small premium geometric dot accent matching the brand identity */
+.nav-logo::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  margin-left: 3px;
+  vertical-align: baseline;
+}
+
+/* --- 4. Navigation Links Track Stack --- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- 5. Link Anchor Typography & Dynamic Edge Lines --- */
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.25s ease;
+  padding: 4px 0;
+  display: inline-block;
+}
+
+/* Sleek micro-underline track swipe effect on link hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* --- 6. Active Login/Logout CTA Highlight Filter --- */
+.nav-links li:last-of-type a {
+  color: var(--accent-color);
+}
+
+.nav-links li:last-of-type a::after {
+  background-color: var(--primary-color);
+}
+
+.nav-links li:last-of-type a:hover {
+  color: var(--primary-color);
+}
+
+/* ==========================================================================
+   RESPONSIVE OVERRIDES (FLUID BREAKPOINTS)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 0;
+  }
+  
+  .nav-links {
+    gap: 1.25rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+  
+  .nav-logo {
+    font-size: 1.15rem;
+  }
+}
